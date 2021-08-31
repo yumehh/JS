@@ -13,7 +13,6 @@ function calcul(){
 
 function nom(){
     var person = prompt("Entrez votre prénom", "Exemple");
-//rajouter des console.log()
     console.log(person);
 
     document.getElementById("rename").innerHTML = " Bonjour " + person;
@@ -67,8 +66,75 @@ function dissapear(){
     }
 };
 
+function formDynamic(){ //TUTORIEL PRIMFX
+       
+        // 1ERE METHODE 
+
+        // document.getElementById("inscription").addEventListener("submit", function(e){
+        // var erreur;
+        //var inputs = document.getElementById("inscription").getElementsByTagName("input"); // inputs = tableau qui reprend tous les champs inférieur
+        // var inputs = this.getElementsByTagName("input"); // qui est la même chose que celui du dessus, le "this" pour le document.getElementbyid...
+
+        // for (var i = 0; i < inputs.length; i++){
+        //     if(!inputs[i].value){
+        //         erreur = "Veuillez renseigner tous les champs";
+        //     }
+        // }
+
+        // var pseudo = document.getElementById("pseudo");
+        // var email = document.getElementById("email");
+        // var email2 = document.getElementById("email2");
+        // var mdp = document.getElementById("mdp");
+
+        // if(!mdp.value){
+        //     erreur = "veuillez renseignez un mdp";
+        // }
+        // if(!email.value){
+        //     erreur = "veuillez renseignez un email";
+        // }
+        // if(!pseudo.value){
+        //     erreur = "veuillez renseignez un pseudo";
+        // }
+    
+        // if(erreur){
+        //     e.preventDefault(); //empêcher le reload de la page
+        //     document.getElementById("erreur").innerHTML = erreur;
+        //     return false;
+        // } else {
+        //     alert('formulaire send');
+        // }
+    //})
+
+    //2EME METHODE 
+
+    //dans cette méthode, on peut supprimer les ID dans le forms HTML
+
+    document.forms["inscription"].addEventListener("submit", function(e){
+
+        var erreur;
+        var inputs = document.getElementById("inscription").getElementsByTagName("input"); // inputs = tableau qui reprend tous les champs inférieur
+        var inputs = this;
+
+        if(inputs["email"].value != "h@gmail.com"){
+            erreur = "email incorrect";
+        }
+
+        for (var i = 0; i < inputs.length; i++){
+            if(!inputs[i].value){
+                erreur = "Veuillez renseigner tous les champs";
+            }
+        }
+
+        if(erreur){
+            e.preventDefault(); //empêcher le reload de la page
+            document.getElementById("erreur").innerHTML = erreur;
+            return false;
+        } else {
+            alert('formulaire send');
+        }
+    })
+}
+
 window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("div1").innerHTML = "Salut";
-    // document.getElementById("nom").innerHTML = "Bonjour " + person + ". Comment allez-vous ?";
-    //document.getElementById("rename").innerHTML = "bonjour" + person;
 })

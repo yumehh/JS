@@ -34,5 +34,16 @@
            <p>2eme phrase</p>
            <p>3eme phrase</p>
        </div>
+
+       <h4>validation dynamique formulaire</h4>
+       
+        <form id="inscription" name="inscription" onclick="formDynamic()">
+            <input type="text" name="pseudo" placeholder="Pseudo" id="pseudo"><br />
+            <input type="email" name="email" placeholder="Email" id="email"><br />
+            <input type="email" name="email-confirmation" placeholder="confirmation email" id="email2"><br />
+            <input type="password" name="mdp" placeholder="Mot de passe" id="mdp">
+            <input type="submit" value="Inscription"> <!-- le submit a également besoin de value, sinon, plante car value = ""-->
+        </form>
+        <p style="color: red;" id="erreur"></p>
     </body>
 </html>
