@@ -14,7 +14,9 @@ function calcul(){
 function nom(){
     var person = prompt("Entrez votre prénom", "Exemple");
 //rajouter des console.log()
-console.log(person);
+    console.log(person);
+
+    document.getElementById("rename").innerHTML = " Bonjour " + person;
 }
 
 function rename(){
@@ -68,5 +70,5 @@ function dissapear(){
 window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("div1").innerHTML = "Salut";
     // document.getElementById("nom").innerHTML = "Bonjour " + person + ". Comment allez-vous ?";
-    document.getElementById("rename").innerHTML = "bonjour" + person;
+    //document.getElementById("rename").innerHTML = "bonjour" + person;
 })
