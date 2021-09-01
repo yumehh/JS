@@ -134,6 +134,7 @@ function formDynamic(){ //TUTORIEL PRIMFX
         for (var i = 0; i < inputs.length; i++){
             if(!inputs[i].value){
                 erreur = "Veuillez renseigner tous les champs";
+                break; // pour s'arrêter au 1er cas rencontré concernant la condition
             }
         }
 
