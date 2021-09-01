@@ -109,15 +109,27 @@ function formDynamic(){ //TUTORIEL PRIMFX
 
     //dans cette méthode, on peut supprimer les ID dans le forms HTML
 
-    document.forms["inscription"].addEventListener("submit", function(e){
+    document.getElementById("email2").addEventListener("input", function(){
+        
+        var paragrapheErreur = document.getElementById("erreur");
 
+        if(this.value != document.getElementById("email").value){
+            paragrapheErreur.innerHTML = "Les 2 emails ne correspondent pas";
+
+        }else{
+            paragrapheErreur.innerHTML = "";
+        }
+    })
+    document.forms["inscription"].addEventListener("submit", function(e){
+        
+        console.log(document.forms["inscription"]);
         var erreur;
         var inputs = document.getElementById("inscription").getElementsByTagName("input"); // inputs = tableau qui reprend tous les champs inférieur
         var inputs = this;
 
-        if(inputs["email"].value != "h@gmail.com"){
-            erreur = "email incorrect";
-        }
+        // if(inputs["email"].value != "h@gmail.com"){ // ecrire en dur
+        //     erreur = "email incorrect";
+        // }
 
         for (var i = 0; i < inputs.length; i++){
             if(!inputs[i].value){
