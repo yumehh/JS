@@ -148,6 +148,25 @@ function formDynamic(){ //TUTORIEL PRIMFX
     })
 }
 
+
 window.addEventListener("DOMContentLoaded", () => {
     document.getElementById("div1").innerHTML = "Salut";
+    document.getElementById("redirection").addEventListener('click', function(e){
+        e.preventDefault(); //annule le comportement par défaut de l'élément
+        alert('fail');
+        return false; 
+    });
+    document.getElementById("redirection").addEventListener('contextmenu', function(e){ //contextmenu = clic droit souris
+          if(prompt("ouverture du menu confirmer : ") != "ok"){
+              e.preventDefault();
+              return false;
+          }
+    });
+
+    document.querySelector(".bouton").addEventListener('contextmenu', function(e){
+        if(prompt("ouverture du menu confirmer : ") != "ok"){
+            e.preventDefault();
+            return false;
+        }
+    })
 })
